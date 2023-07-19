@@ -1,12 +1,8 @@
 from flask import Flask, jsonify, request, render_template, url_for
 import random
-import requests, json
+import requests, jsonify
 
-app = Flask(  # Create a flask app
-    __name__,
-    template_folder='templates',  # Name of html file folder
-    static_folder='static'  # Name of directory for static files
-)
+app = Flask(__name__, template_folder='templates', static_folder='static')
 
 # Variables for tasks
 image_link = "https://uploads-ssl.webflow.com/5dd64bd3a930f9d04abd1363/5de254f85f1762feee30d664_meet_logo_red.png"
@@ -25,7 +21,13 @@ posts = {
 
 @app.route('/')  # '/' for the default page
 def home():
-    return render_template('index.html')
+    data = {
+        'image_link': image_link,
+        'user_bio': user_bio,
+        'posts': posts
+        
+    }
+    return render_template('index.html', data = data )
 
 
 @app.route('/about')  # '/' for the default page
