@@ -81,5 +81,9 @@
 			<script src="static/js/skel.min.js"></script>
 			<script src="static/js/main.js"></script>
 
+		{% for key in posts2 %}
+			<img src="{{key}}" alt=""/>
+			<li> {{posts2[key]}}</li>
+				{% endfor %}
 	</body>
 </html>

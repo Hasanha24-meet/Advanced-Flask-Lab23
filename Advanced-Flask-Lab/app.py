@@ -27,7 +27,7 @@ def home():
         'posts': posts
         
     }
-    return render_template('index.html', data = data )
+    return render_template('index.html', data = data, posts2 = posts)
 
 
 @app.route('/about')  # '/' for the default page
